@@ -4,10 +4,8 @@ file_path = os.path.join(os.path.dirname(__file__), "input_day_3.txt")
 with open(file_path, "r") as file:
     input_ = file.read()
 
-BATTERY_LENGTHS = {2, 12}
-total = 0
-
-for bat_len in BATTERY_LENGTHS:
+for bat_len in {2, 12}:
+    total = 0
     for line in input_.split("\n"):
         digits = [0] * bat_len
         for i in range(len(line)):
@@ -18,4 +16,3 @@ for bat_len in BATTERY_LENGTHS:
                     break
         total += int("".join(map(str, digits)))
     print(f"Total joltage for batteries of length {bat_len}:", total)
-    total = 0
